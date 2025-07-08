@@ -1,0 +1,6 @@
+fastapi==0.115.6
+uvicorn==0.34.0
+pydantic_settings==2.8.1
+boto3==1.37.17
+pytest==8.4.1
+PyYAML==6.0.2
