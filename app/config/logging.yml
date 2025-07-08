@@ -1,0 +1,29 @@
+version: 1
+formatters:
+  default:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: default
+    stream: ext://sys.stdout
+  file:
+    class: logging.FileHandler
+    formatter: default
+    filename: logs/app.log
+    mode: a
+
+loggers:
+  uvicorn:
+    handlers: [console]
+    level: INFO
+    propagate: no
+  app:
+    handlers: [file]
+    level: INFO
+    propagate: no
+
+root:
+  handlers: [console]
+  level: INFO 
