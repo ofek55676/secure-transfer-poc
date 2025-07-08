@@ -1,4 +1,3 @@
-# This file is covered by tests in test_routes.py for demonstration purposes
 from fastapi import APIRouter, Depends
 from app.routes.utils import get_settings
 from app.config import Settings

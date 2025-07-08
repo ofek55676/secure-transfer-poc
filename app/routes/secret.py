@@ -1,5 +1,4 @@
-# This file is covered by tests in test_routes.py for demonstration purposes
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from app.routes.utils import get_settings
 from app.services.secret import Secret
 from app.config import Settings
