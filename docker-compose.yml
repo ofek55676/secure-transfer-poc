@@ -1,0 +1,18 @@
+services:
+  app:
+    container_name: my-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file: ".env"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      maintainer: "ofek@example.com"
+      version: "1.0"
