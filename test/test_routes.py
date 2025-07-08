@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from unittest.mock import patch
-from app.app import create_app
+from app.main import create_app
 import os
 
 
@@ -25,20 +25,22 @@ def client():
 
 
 def test_health_endpoint(client):
-    """GET /health should return 200 and include health status, container, and project info."""
     response = client.get("/health")
+
     assert response.status_code == 200
     json_data = response.json()
+
     assert json_data.get("status") == "healthy"
     assert json_data.get("container")
     assert json_data.get("project")
 
 
 def test_secret_endpoint(client):
-    """GET /secret should return 200 and a mocked secret code."""
     with patch("app.services.secret.Secret.retrieve_secret") as mock_get_secret:
         mock_get_secret.return_value = "mocked-secret-value"
         response = client.get("/secret")
+
         assert response.status_code == 200
+
         json_data = response.json()
         assert json_data.get("secret_code") == "mocked-secret-value"

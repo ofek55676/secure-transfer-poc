@@ -1,8 +1,8 @@
 # This file is covered by tests in test_routes.py for demonstration purposes
 from fastapi import APIRouter, Depends
-from routes.utils import get_settings
-from config import Settings
-from logger import logger
+from app.routes.utils import get_settings
+from app.config import Settings
+from app.logger import logger
 
 
 router = APIRouter()

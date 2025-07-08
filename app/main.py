@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from routes import secret, health
+from app.routes import secret, health
 import uvicorn
-from logger import logger
+from app.logger import logger
 
 
 def create_app() -> FastAPI:

@@ -1,6 +1,6 @@
 import boto3
 from botocore.exceptions import BotoCoreError, ClientError
-from logger import logger
+from app.logger import logger
 
 
 class Secret:
